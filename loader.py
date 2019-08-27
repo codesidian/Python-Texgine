@@ -24,6 +24,7 @@ class loader():
                 currInteractable = Interactable(interactable.name.cdata,
                                                 interactable.description.cdata,
                                                 interactable.requiredEffects.cdata.split(','))
+                                                #this is fine, we can just check for req effect name in player's effect list
                 currStory.addInteractable(currInteractable)
                 
             self.stories.append(currStory)
