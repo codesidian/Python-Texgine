@@ -1,0 +1,142 @@
+<!--
+
+    Room changes are triggered via an effect from an action eg. ROOMCHANGE:room name
+
+-->
+<stories>
+
+<story>
+    <name>Coats and Red</name>
+    <startRoom>bedroom</startRoom>
+    <description>A story of love, loss, and fucking awesomeness.</description>
+
+    <room>
+        <name>bedroom</name>
+        <description>a bedroom</description>
+        <art>bed</art>
+        <interactables>Bed,Floor,Bedroom Door</interactables>
+    </room>
+
+    <room>
+        <name>hallway</name>
+        <description>a hallway</description>
+        <art>a hallway</art>
+        <interactables></interactables>
+    </room>
+
+    <interactable>
+        <name>Bed</name>
+        <description>A cold metal framed bed that squeeks without presence.</description>
+        <requiredEffects></requiredEffects>
+        <items></items>
+        <action>
+            <name>Cut up the bed</name>
+            <description>You shred up the bed to pieces</description>
+            <failDescription>Your knife isn't sharp enough</failDescription>
+
+            <item>Knife</item>
+
+            <requiredEffects>sharpKnife</requiredEffects>
+            <givenEffects>bluntKnife</givenEffects>
+            <removedEffects>sharpKnife</removedEffects>
+
+            <requiredItems>Knife</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc>The carcass of a shredded mattress.</newDesc>
+            <newItems>Golden Key</newItems>
+            <newArt>Golden Key</newArt>
+            <newInteractables></newInteractables>
+        </action>
+    </interactable>
+
+    <interactable>
+        <name>Floor</name>
+        <description>A dirty stone floor.</description>
+        <requiredEffects></requiredEffects>
+        <items>Knife</items>
+        <action>
+            <name>sharpenBlade</name>
+            <description>You start sharpening your blade.</description>
+            <failDescription>Your knife is already sharp!</failDescription>
+
+            <item>Knife</item>
+
+            <requiredEffects>bluntKnife</requiredEffects>
+            <givenEffects>sharpKnife</givenEffects>
+            <removedEffects>sharpKnife</removedEffects>
+
+            <requiredItems>Knife</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc>The stone floor has markings from your blade sharpening.</newDesc>
+            <newItems></newItems>
+            <newArt></newArt>
+            <newInteractables></newInteractables>
+        </action>
+    </interactable>
+
+    <interactable>
+        <name>Bedroom Door</name>
+        <description>A red and warm door.</description>
+        <requiredEffects></requiredEffects>
+        <items></items>
+        <action>
+            <name>unlockBedroomDoor</name>
+            <description>You try the key... and it fits! You unlock the door</description>
+            <failDescription>Your knife is already sharp!</failDescription>
+            <item>Golden Key</item>
+
+            <requiredEffects></requiredEffects>
+            <givenEffects></givenEffects>
+            <removedEffects></removedEffects>
+
+            <requiredItems>Golden Key</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc>The red and warm door is now unlocked...</newDesc>
+            <newItems></newItems>
+            <newArt></newArt>
+            <newInteractables></newInteractables>
+        </action>
+        <action>
+            <name>enterBedroomDoor</name>
+            <description>You open the door, and enter.</description>
+            <failDescription>The door is locked.</failDescription>
+            <item>Hand</item>
+
+            <requiredEffects>unlockedBedDoor</requiredEffects>
+            <givenEffects>ROOMCHANGE:hallway</givenEffects>
+            <removedEffects></removedEffects>
+
+            <requiredItems>Golden Key</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc></newDesc>
+            <newItems></newItems>
+            <newArt></newArt>
+            <newInteractables></newInteractables>
+        </action>
+    </interactable>
+
+    <item>
+        <name>Knife</name>
+        <description>A steely blade that glimmers in the sun.</description>
+        <sellable>False</sellable>
+        <value>100</value>
+    </item>
+
+    <item>
+        <name>Golden Key</name>
+        <description>A beautiful golden key.</description>
+        <sellable>True</sellable>
+        <value>500</value>
+    </item>
+</story>
+
+
+</stories>
