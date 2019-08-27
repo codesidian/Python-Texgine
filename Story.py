@@ -6,6 +6,7 @@ class Story():
         self.rooms = []
         self.items = []
         self.interactables = []
+        self.effects = []
         
     def addRoom(self,room):
         self.rooms.append(room)
@@ -15,6 +16,9 @@ class Story():
         
     def addInteractable(self,interactable):
         self.items.append(interactable)
+    
+    def addEffect(self,effect):
+        self.effects.append(effect)
 
     def getRooms(self):
         return self.rooms
@@ -23,7 +27,10 @@ class Story():
         return self.items
     
     def getInteractables(self):
-        return self.getInteractables
+        return self.interactables
+    
+    def getEffects(self):
+        return self.effects
     
     def __str__(self):
         return '{self.name} - {self.description}'.format(self=self)

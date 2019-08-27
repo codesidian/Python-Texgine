@@ -1,0 +1,25 @@
+[ROOMS]
+bedroom
+hallway
+
+[INTERACTABLES]
+Bed
+Floor
+Bedroom Door
+
+[ACTIONS]
+cutBed
+sharpenBlade
+unlockBedroomDoor
+enterBedroomDoor
+
+[ITEMS]
+Knife
+Golden Key
+Hand
+
+[EFFECTS]
+hallwayChange
+sharpKnife
+bluntKnife
+unlockedBedDoor

@@ -1,10 +1,7 @@
 <!--
-
-    Room changes are triggered via an effect from an action eg. ROOMCHANGE:room name
-
+    isRoomChange in the effect object can be blank or set to false if the effect isn't a room change
 -->
 <stories>
-
 <story>
     <name>Coats and Red</name>
     <startRoom>bedroom</startRoom>
@@ -25,7 +22,7 @@
     </room>
 
     <interactable>
-        <name>Bed</name>
+        <name>cutBed</name>
         <description>A cold metal framed bed that squeeks without presence.</description>
         <requiredEffects></requiredEffects>
         <items></items>
@@ -90,7 +87,7 @@
             <item>Golden Key</item>
 
             <requiredEffects></requiredEffects>
-            <givenEffects></givenEffects>
+            <givenEffects>unlockedBedDoor</givenEffects>
             <removedEffects></removedEffects>
 
             <requiredItems>Golden Key</requiredItems>
@@ -109,7 +106,7 @@
             <item>Hand</item>
 
             <requiredEffects>unlockedBedDoor</requiredEffects>
-            <givenEffects>ROOMCHANGE:hallway</givenEffects>
+            <givenEffects>hallwayChange</givenEffects>
             <removedEffects></removedEffects>
 
             <requiredItems>Golden Key</requiredItems>
@@ -136,6 +133,27 @@
         <sellable>True</sellable>
         <value>500</value>
     </item>
+
+    <effect>
+        <name>hallwayChange</name>
+        <description>You're now in the hallway.</description>
+        <isRoomChange roomname="hallway">True</isRoomChange>
+    </effect>
+    <effect>
+        <name>sharpKnife</name>
+        <description>Your knife is now sharp.</description>
+        <isRoomChange>False</isRoomChange>
+    </effect>
+    <effect>
+        <name>bluntKnife</name>
+        <description>Your knife is now blunt.</description>
+        <isRoomChange>False</isRoomChange>
+    </effect>
+    <effect>
+        <name>unlockedBedDoor</name>
+        <description>The bedroom door is now unlocked.</description>
+        <isRoomChange>False</isRoomChange>
+    </effect>
 </story>
 
 
