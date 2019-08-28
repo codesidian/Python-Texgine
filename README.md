@@ -22,7 +22,7 @@ The basic layout of story is the following
 
 
     <interactable>
-        <name>cutBed</name>
+        <name>Bed</name>
         <description>A cold metal framed bed that squeeks without presence.</description>
         <requiredEffects></requiredEffects>
         <items></items>
@@ -71,6 +71,35 @@ The root `stories` object contains multiple `story` objects. A `story` contains 
 
 ### Interactables & Actions
 Interactables are objects within the text based game that are interactable by the player. They can combine themselves, or items with the interactable for a specific outcome. This is called an `action`. The `action` can change the `interactable`, manipulate `effects` and/or `items`. 
+```XML
+    <interactable>
+        <name>Bed</name>
+        <description>A cold metal framed bed that squeeks without presence.</description>
+        <requiredEffects></requiredEffects>
+        <items></items>
+        <action>
+            <name>Cut up the bed</name>
+            <description>You shred up the bed to pieces</description>
+            <failDescription>Your knife isn't sharp enough</failDescription>
+
+            <item>Knife</item>
+
+            <requiredEffects>sharpKnife</requiredEffects>
+            <givenEffects>bluntKnife</givenEffects>
+            <removedEffects>sharpKnife</removedEffects>
+
+            <requiredItems>Knife</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc>The carcass of a shredded mattress.</newDesc>
+            <newItems>Golden Key</newItems>
+            <newArt>Golden Key</newArt>
+            <newInteractables></newInteractables>
+        </action>
+    </interactable>
+```
+This interactable has an action that required a knife and the effect `sharpKnife`. The player will combine the knife object with this interactable which will trigger this action. If the player doesn't have the required effect then the `failDescription` will show, else the action is executed. 
 
 ### Room Traversal
 Room traversal is acheived via an effect given by an action:
