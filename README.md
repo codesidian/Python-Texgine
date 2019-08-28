@@ -111,3 +111,9 @@ Room traversal is acheived via an effect given by an action:
     </effect>
 ```
 The controller will check an effect that is given to the player and if it is a `isRoomChange` effect then the `roomname` attribute will be extracted and the player will then be switched to that room. Multiple interactables in a room can give room change effects so stories do not have to be linear. 
+
+## Installation & Use
+Requirements:
+* Python 3.7
+* untangle
+Run `controller.py`. 
