@@ -71,3 +71,14 @@ The root `stories` object contains multiple `story` objects. A `story` contains 
 
 ### Interactables & Actions
 Interactables are objects within the text based game that are interactable by the player. They can combine themselves, or items with the interactable for a specific outcome. This is called an `action`. The `action` can change the `interactable`, manipulate `effects` and/or `items`. 
+
+### Room Traversal
+Room traversal is acheived via an effect given by an action:
+```XML
+    <effect>
+        <name>hallwayChange</name>
+        <description>You're now in the hallway.</description>
+        <isRoomChange roomname="hallway">True</isRoomChange>
+    </effect>
+```
+The controller will check an effect that is given to the player and if it is a `isRoomChange` effect then the `roomname` attribute will be extracted and the player will then be switched to that room. Multiple interactables in a room can give room change effects so stories do not have to be linear. 
