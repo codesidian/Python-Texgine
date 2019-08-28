@@ -1,1 +1,73 @@
-Format: ![TEXGINE](https://i.imgur.com/n0RXM7y.png)
+![TEXGINE](https://i.imgur.com/n0RXM7y.png)
+
+A simple engine for creating text based games by writing stories using XML. 
+## Basic mechanics
+The player traverses rooms, gaining effects and items while using effects and items to interact with objects called **interactables**. 
+
+## Writing a story
+The basic layout of story is the following
+```XML
+<stories>
+<story>
+    <name>Coats and Red</name>
+    <startRoom>bedroom</startRoom>
+    <description>A story of love, loss, and fucking awesomeness.</description>
+
+    <room>
+        <name>bedroom</name>
+        <description>a bedroom</description>
+        <art>bed</art>
+        <interactables>Bed</interactables>
+    </room>
+
+
+    <interactable>
+        <name>cutBed</name>
+        <description>A cold metal framed bed that squeeks without presence.</description>
+        <requiredEffects></requiredEffects>
+        <items></items>
+        <action>
+            <name>Cut up the bed</name>
+            <description>You shred up the bed to pieces</description>
+            <failDescription>Your knife isn't sharp enough</failDescription>
+
+            <item>Knife</item>
+
+            <requiredEffects>sharpKnife</requiredEffects>
+            <givenEffects>bluntKnife</givenEffects>
+            <removedEffects>sharpKnife</removedEffects>
+
+            <requiredItems>Knife</requiredItems>
+            <givenItems></givenItems>
+            <removedItems></removedItems>
+
+            <newDesc>The carcass of a shredded mattress.</newDesc>
+            <newItems>Golden Key</newItems>
+            <newArt>Golden Key</newArt>
+            <newInteractables></newInteractables>
+        </action>
+    </interactable>
+
+
+    <item>
+        <name>Knife</name>
+        <description>A steely blade that glimmers in the sun.</description>
+        <sellable>False</sellable>
+        <value>100</value>
+    </item>
+
+    <effect>
+        <name>sharpKnife</name>
+        <description>You're knife is now sharp.</description>
+        <isRoomChange>False</isRoomChange>
+    </effect>
+
+</story>
+
+
+</stories>
+```
+The root `stories` object contains multiple `story` objects. A `story` contains multiple `item`, `interactable`, and `effect` objects with their respective information. 
+
+### Interactables & Actions
+Interactables are objects within the text based game that are interactable by the player. They can combine themselves, or items with the interactable for a specific outcome. This is called an `action`. The `action` can change the `interactable`, manipulate `effects` and/or `items`. 
