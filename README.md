@@ -1,4 +1,4 @@
-![TEXGINE](https://i.imgur.com/n0RXM7y.png)
+![TEXGINE](https://i.imgur.com/3YzforU.gif)
 
 A simple engine for creating text based games by writing stories using XML. 
 ## Basic mechanics
