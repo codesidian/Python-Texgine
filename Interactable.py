@@ -23,4 +23,7 @@ class Interactable():
     
     def addRequiredEffect(self,effect):
         self.requiredEffects.append(effect)
+
+    def __str__(self):
+        return '{self.name}:{self.description}:{self.requiredEffects}:{self.actions}'.format(self=self)
     

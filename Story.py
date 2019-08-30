@@ -15,7 +15,7 @@ class Story():
         self.items.append(item)
         
     def addInteractable(self,interactable):
-        self.items.append(interactable)
+        self.interactables.append(interactable)
     
     def addEffect(self,effect):
         self.effects.append(effect)
