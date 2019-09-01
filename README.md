@@ -13,6 +13,14 @@ The basic layout of story is the following
     <startRoom>bedroom</startRoom>
     <description>A story of love, loss, and fucking awesomeness.</description>
 
+    <player>
+        <name>Default Player</name>
+        <description>This is an example of a default set-up</description>
+        <effects>defaultEffect</effects>
+        <items>Self defaultItems</items>
+        <art>:)</art>
+    </player>
+
     <room>
         <name>bedroom</name>
         <description>a bedroom</description>
@@ -111,6 +119,20 @@ Room traversal is acheived via an effect given by an action:
     </effect>
 ```
 The controller will check an effect that is given to the player and if it is a `isRoomChange` effect then the `roomname` attribute will be extracted and the player will then be switched to that room. Multiple interactables in a room can give room change effects so stories do not have to be linear. 
+
+### Player Character
+```
+    <player>
+        <name>Default Player</name>
+        <description>This is an example of a default set-up</description>
+        <effects>defaultEffect</effects>
+        <items>Self defaultItems</items>
+        <art>:)</art>
+    </player>
+```
+You can add an optional `player` object to the game XML to give the player a preset character or loadout. You can either set up a character that the player has to play with a preset name, description etc or you can keep those blank to allow the player to set their own name, description etc. Effects and Items will be loaded into the player's game irrespective of whether or not you've chosen to set up the name, description or art. Do not add the player object or keep it blank if you'd like for all player data to be set during the story. 
+
+
 
 ## Installation & Use
 Requirements:
