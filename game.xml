@@ -7,6 +7,14 @@
     <startRoom>bedroom</startRoom>
     <description>A story of love, loss, and fucking awesomeness.</description>
 
+    <player>
+        <name>Default Player</name>
+        <description>This is an example of a default set-up</description>
+        <effects>defaultEffect</effects>
+        <items>Self defaultItems</items>
+        <art>:)</art>
+    </player>
+
     <room>
         <name>bedroom</name>
         <description>a bedroom</description>
@@ -103,7 +111,7 @@
             <name>enterBedroomDoor</name>
             <description>You open the door, and enter.</description>
             <failDescription>The door is locked.</failDescription>
-            <item>Hand</item>
+            <item>Self</item>
 
             <requiredEffects>unlockedBedDoor</requiredEffects>
             <givenEffects>hallwayChange</givenEffects>
@@ -133,7 +141,12 @@
         <sellable>True</sellable>
         <value>500</value>
     </item>
-
+    <item>
+        <name>Self</name>
+        <description>You're, you.</description>
+        <sellable>False</sellable>
+        <value>0</value>
+    </item>
     <effect>
         <name>hallwayChange</name>
         <description>You're now in the hallway.</description>

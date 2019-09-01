@@ -5,20 +5,25 @@ from Item import Item
 from Interactable import Interactable
 from Effect import Effect
 from Action import Action
-
+from Validator import Validator
+from Player import Player
 class invalidSetup(Exception):
     pass
 
-class loader():
+class Loader():
     def __init__(self,gamefile):
         ''' `gamefile` : filename of the XML game data containing stories '''
+        #validator = Validator()
+        #self.gamedata = validator.validate(untangle.parse(gamefile))
         self.gamedata = untangle.parse(gamefile)
         self.stories = []
         #ParseRooms(obj)
         
     def loadStories(self):
+        storyNum = 0
         for st in self.gamedata.stories.story:
-            currStory = Story(st.name.cdata,st.startRoom.cdata,st.description.cdata)
+            storyNum += 1
+            currStory = Story(storyNum,st.name.cdata,st.startRoom.cdata,st.description.cdata)
             
             for room in st.room:
                 currRoom = Room(room.name.cdata,room.description.cdata,room.art.cdata,room.interactables.cdata)
@@ -63,6 +68,10 @@ class loader():
                                         effect.description.cdata)
                 currStory.addEffect(currEffect)
             
+            player = Player(st.player.name.cdata,st.player.description.cdata,
+                                st.player.effects.cdata,st.player.items.cdata,
+                                st.player.art.cdata)
+            currStory.setPlayer(player)
                 
             self.stories.append(currStory)
             
