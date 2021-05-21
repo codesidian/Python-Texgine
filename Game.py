@@ -3,8 +3,9 @@ from Controller import Controller
 
 gameLoader = Loader('game.xml')
 gameLoader.loadStories()
+stories = gameLoader.getStories()
 
-for story in gameLoader.getStories():
+for story in stories:
     print(story)
     for room in story.getRooms():
         print('ROOM INFO:' + str(room.name))
@@ -20,8 +21,15 @@ for story in gameLoader.getStories():
     
 
 print('\nEnter the story name or the number of the story you\'d like to play')
-for story in gameLoader.getStories():
+for story in stories:
     print(str(story))
+    
+storyChoice = input()
+story = gameLoader.getStories(int(storyChoice))
+
+print(f"You've chosen {story}")
+
+
 
 
     
